@@ -1,0 +1,90 @@
+<div class="dashboard">
+    <div id="tile-{{course.id}}" ng-repeat="course in courses track by $index" class="course-tile">
+        <div>
+            <div class="course-name-wrapper">
+                <span class="course-name">{{ course.name }}</span>
+            </div>
+        </div>
+        <div class="course-wrapper">
+            <div>
+                <span>Terminy</span>
+                <div ng-repeat="event in course.events track by $index">
+                    <span>{{event.date}} {{event.type}}</span>
+                </div>
+                <div class="course-content">
+                    <a ng-click="addTerminOpenModal(course.id)" class="waves-effect waves-light btn modal-trigger">Dodaj</a>
+                </div>
+            </div>
+            <div>
+                <span>Materiały</span></br>
+                <div ng-repeat="material in course.materials track by $index">
+                    <a href="{{material.materialLink}}">{{material.materialContent}}</a>
+                </div>
+                <a ng-click="addMaterialOpenModal(course.id)" class="waves-effect waves-light btn">Dodaj</a>
+            </div>
+        </div>
+    </div>
+    <div id="add-termin-modal" class="modal">
+        <div class="modal-content">
+            <h4>Dodaj wydarzenie</h4>
+            <div class="modal-wrapper">
+                <div class="datapicker-wrapper">
+                    <input type="date" class="datepicker">
+                </div>
+                <div style="margin-left: 1em" class="input-field">
+                    <select id="select-event-time">
+                        <option selected value="1">20:15</option>
+                        <option value="1">20:15</option>
+                        <option value="1">20:15</option>
+                    </select>
+                </div>
+                <div class="static-text-container">
+                    <span> będzie</span>
+                </div>
+                <div class="input-field">
+                    <select id="select-event-type">
+                        <option value="" disabled selected>Wybierz wydarzenie</option>
+                        <option value="1">sprawdzian</option>
+                        <option value="2">kartkówka</option>
+                        <option value="3">kolokwium</option>
+                        <option value="3">prezentacja projektu</option>
+                    </select>
+                </div>
+                <div class="add-button-wrapper">
+                    <a ng-click="addCourseEvent()" class="waves-effect waves-light btn">Dodaj</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="add-material-modal" class="modal">
+        <div class="modal-content">
+            <h4>Dodaj materiał</h4>
+            <div class="modal-wrapper row">
+                <div class="row">
+                    <div class="input-field col s10">
+                        <input ng-model="materialLink" id="link" type="text" class="validate">
+                        <label for="link">Link</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <form class="col s10">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea ng-model="materialContent" id="icon_prefix2" class="materialize-textarea"></textarea>
+                                <label for="icon_prefix2">First Name</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <a ng-click="addMaterialToCourse(materialContent, materialLink)" class="waves-effect waves-light btn">Dodaj</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 11em; margin-top: 3em">
+        <a ng-click="addNewCourse(newCourseName)" class="waves-effect waves-light btn">Dodaj przedmiot</a>
+        <input ng-model="newCourseName" style="text-align: center" type="text" placeholder="Nazwa">
+    </div>
+</div>
