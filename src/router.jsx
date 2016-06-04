@@ -5,10 +5,10 @@ import Dashboard from './components/dashboard.jsx';
 
 export default () => {
     return (
-    <Router history={hashHistory}>
-        <Route path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Redirect from="/" to="/login" />
-    </Router>
+      <Router history={hashHistory}>
+          <Route path="/login" component={Login} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Redirect from="/" to="/login" />
+      </Router>
     );
 }
