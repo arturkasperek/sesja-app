@@ -16,5 +16,8 @@
     "less": "^2.7.1",
     "materialize-css": "^0.97.6",
     "ui-router": "^1.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "gulp-webserver": "^0.9.1"
   }
 }

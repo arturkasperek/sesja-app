@@ -1,0 +1,9 @@
+{
+    "verbose": false,
+    "legacyWatch": true,
+    "watch": [
+      "backend",
+      "server.js"
+    ],
+    "exec": "babel-node --presets es2015 -- server.js"
+}

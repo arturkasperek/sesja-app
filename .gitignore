@@ -2,3 +2,4 @@
 ftpSettings.json
 dist/
 /**/.idea
+/build

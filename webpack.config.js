@@ -4,13 +4,20 @@ var output = __dirname;
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    entry: './src/main.js',
-    output: { path: output, filename: 'bundle.js' },
+    context: __dirname,
+    entry: [
+        './frontend/main.js'
+    ].concat(!isProduction ? ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000'] : []),
+    output: {
+        path: __dirname + '/build/frontend',
+        publicPath: '',
+        filename: 'bundle.js'
+    },
     module: {
         loaders: [
             {
                 test: /.jsx?$/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
                     presets: ['es2015', 'react', !isProduction ? 'react-hmre' : undefined]
@@ -24,5 +31,9 @@ module.exports = {
             mangle: true
         })
     ]:
-    [],
+    [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.NoErrorsPlugin()
+    ],
 };
