@@ -20,7 +20,8 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    presets: ['es2015', 'react', !isProduction ? 'react-hmre' : undefined]
+                    presets: ['es2015', 'react', !isProduction ? 'react-hmre' : undefined],
+                    plugins: ['transform-decorators-legacy']
                 }
             }
         ]

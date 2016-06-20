@@ -19,12 +19,16 @@
   "dependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-router": "^2.4.1"
+    "react-redux": "^4.4.5",
+    "react-router": "^2.4.1",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-hmre": "^1.1.1",
@@ -36,6 +40,7 @@
     "gulp-ftp": "^1.1.0",
     "gulp-util": "^3.0.7",
     "nodemon": "^1.9.2",
+    "redux-devtools": "^3.3.1",
     "source-map-support": "^0.4.0",
     "vinyl-ftp": "^0.4.5",
     "webpack": "^1.13.1",
