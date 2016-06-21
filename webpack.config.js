@@ -23,7 +23,15 @@ module.exports = {
                     presets: ['es2015', 'react', !isProduction ? 'react-hmre' : undefined],
                     plugins: ['transform-decorators-legacy']
                 }
-            }
+            },
+            {
+                test: /\.scss$/,
+                loaders: ["style", "css", "sass"]
+            },
+            {
+                test: /\.css$/,
+                loader: "style!css"
+            },
         ]
     },
     plugins: isProduction ? [
