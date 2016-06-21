@@ -26,7 +26,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loaders: ["style", "css", "sass"]
+                loaders: ["style", !isProduction ? "css?sourceMap" : "css", !isProduction ? "sass?sourceMap" : "sass"]
             },
             {
                 test: /\.css$/,
