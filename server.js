@@ -1,5 +1,3 @@
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpack from 'webpack';
 import express from 'express';
 import config from './webpack.config.js';
@@ -10,11 +8,11 @@ const app = express();
 if(!isProduction) {
     const compiler = webpack(config);
 
-    app.use(webpackDevMiddleware(compiler, {
+    app.use(require('webpack-dev-middleware')(compiler, {
         noInfo: true, publicPath: config.output.publicPath
     }));
-
-    app.use(webpackHotMiddleware(compiler, {
+    
+    app.use(require('webpack-hot-middleware')(compiler, {
         log: console.log, path: '/__webpack_hmr', heartbeat: 10 * 1000
     }));
 }

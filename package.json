@@ -6,10 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon",
+    "dev:debug-backend": "npm run build && nodemon --exec 'npm run build:backend && NODE_ENV=production devtool build/server.js' ",
     "prod": "npm run build && npm run start:prod",
     "start:prod": "NODE_ENV=production node build/server.js",
     "build": "npm run build:backend && npm run build:frontend && npm run copy-static-files",
-    "build:backend": "babel --presets es2015,stage-0 ./backend -d build/backend/ && npm run build:server",
+    "build:backend": "babel --presets es2015,stage-0 ./backend -d build/backend/ --source-maps && npm run build:server",
     "build:frontend": "NODE_ENV=production webpack",
     "build:server": "babel --presets es2015,stage-0 server.js -d build/",
     "copy-static-files": "cp index.html webpack.config.js build/"
